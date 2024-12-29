@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Virat Cricket Accessories</title>
+    <style>
+        /* Apply a full-screen background image */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://images.stockcake.com/public/2/a/2/2a229636-7035-4b08-957a-9cd805001454_large/sunset-cricket-match-stockcake.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+        }
+
+        /* Overlay background with a semi-transparent gradient */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .logo {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 100%;
+            height: auto;
+            max-height: 150px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .container h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+        }
+
+        .container h2 {
+            font-size: 1.5rem;
+            color: #f1f1f1;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 1rem;
+            color: #f1f1f1;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.7);
+            color: #333;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group input:focus {
+            background: #fff;
+            border: 2px solid #0072ff;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group button:hover {
+            background: linear-gradient(to right, #0072ff, #00c6ff);
+            transform: scale(1.05);
+        }
+
+        .footer {
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #00c6ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay for background darkening -->
+    <div class="overlay"></div>
+
+    <!-- Container for the login form -->
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="logo.jpg" alt="Virat Cricket Accessories Logo">
+        </div>
+        <h1>VIRAT CRICKET ACCESSORIES</h1>
+        <h2>Login to Your Account</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        <div class="footer">
+            <p>Don't have an account? <a href="createaccount.html">Create one here</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Form submission handler
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Retrieve stored credentials from localStorage
+            const storedUsername = localStorage.getItem("username");
+            const storedPassword = localStorage.getItem("password");
+
+            // Validate credentials
+            if (username === storedUsername && password === storedPassword) {
+                // Redirect to home.html if credentials are correct
+                window.location.href = "home.html";
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>
