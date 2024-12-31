@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Gear Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+        .product h3 {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        .product p {
+            color: #555;
+            font-size: 1em;
+            margin: 10px 0;
+        }
+        .product button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        .product button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Football Gear Shop</h1>
+    <p>High-Performance Gear for Every Footballer</p>
+</header>
+
+<div class="container">
+    <!-- Football -->
+    <div class="product">
+        <img src="https://sportsjam.in/media/catalog/product/cache/f6d88dd4f51ed5a5b4384f0ded062b0d/p/m/pm08399702.jpg" alt="Football">
+        <h3>Premium Match Football</h3>
+        <p>$39.99</p>
+        <button onclick="addToCart('Premium Match Football', 39.99)">Add to Cart</button>
+    </div>
+
+    <!-- Football Shoes -->
+    <div class="product">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5NigGAcYhwzZ-IG5Ffn-1B0mwqxXa1ogFXg&s" alt="Football Shoes 1">
+        <h3>Pro Football Cleats</h3>
+        <p>$79.99</p>
+        <button onclick="addToCart('Pro Football Cleats', 79.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://5.imimg.com/data5/ZF/PR/VP/SELLER-98309129/adidas-football-shoe.jpg" alt="Football Shoes 2">
+        <h3>Speedster Football Shoes</h3>
+        <p>$89.99</p>
+        <button onclick="addToCart('Speedster Football Shoes', 89.99)">Add to Cart</button>
+    </div>
+
+    <!-- Jerseys -->
+    <div class="product">
+        <img src="https://redravenstore.in/cdn/shop/files/Home1_67b83c65-bc15-4e10-90ea-b97e9bd3007d.jpg?v=1726937208" alt="Jersey 1">
+        <h3>Team Home Jersey</h3>
+        <p>$59.99</p>
+        <button onclick="addToCart('Team Home Jersey', 59.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://fanaacs.com/wp-content/uploads/2024/10/Home-Full-sleeve-1.jpg" alt="Jersey 2">
+        <h3>Team Away Jersey</h3>
+        <p>$59.99</p>
+        <button onclick="addToCart('Team Away Jersey', 59.99)">Add to Cart</button>
+    </div>
+
+    <!-- Hand Gloves -->
+    <div class="product">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKd9setO90cs94OoLfpQdw1tjInzWgwXkboQ&s" alt="Gloves">
+        <h3>Goalkeeper Gloves</h3>
+        <p>$49.99</p>
+        <button onclick="addToCart('Goalkeeper Gloves', 49.99)">Add to Cart</button>
+    </div>
+</div>
+
+<script>
+function addToCart(productName, productPrice) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingProduct = cart.find(item => item.name === productName);
+
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push({ name: productName, price: parseFloat(productPrice), quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${productName} has been added to your cart!`);
+}
+</script>
+
+</body>
+</html>
