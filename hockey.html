@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hockey Gear Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+        .product h3 {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        .product p {
+            color: #555;
+            font-size: 1em;
+            margin: 10px 0;
+        }
+        .product button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        .product button:hover {
+            background-color: #218838;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 768px) {
+            .product-card {
+                padding: 15px;
+            }
+            .product-name {
+                font-size: 16px;
+            }
+            .product-price {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Hockey Gear Shop</h1>
+    <p>Top-Quality Equipment for Every Hockey Player</p>
+</header>
+
+<div class="container">
+    <!-- Hockey Sticks -->
+    <div class="product">
+        <img src="https://www.alfahockey.in/wp-content/uploads/2019/12/AX9-P-2-800x800.webp" alt="Hockey Stick 1">
+        <h3>Elite Hockey Stick</h3>
+        <p>$99.99</p>
+        <button class="btn" onclick="addToCart('Elite Hockey Stick', 99.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://images-cdn.ubuy.co.in/6616184477034e1b4074901d-adidas-tx-carbon-hockey-stick-black-and.jpg" alt="Hockey Stick 2">
+        <h3>Pro Carbon Hockey Stick</h3>
+        <p>$129.99</p>
+        <button class="btn" onclick="addToCart('Pro Carbon Hockey Stick', 129.99)">Add to Cart</button>
+    </div>
+
+    <!-- Hockey Pads -->
+    <div class="product">
+        <img src="https://media.purehockey.com/images/q_auto,f_auto,fl_lossy,c_lpad,b_auto,w_1000,h_1000/products/41754/11/137897/pure-hockey-phx-elite-hockey-shoulder-pads-youth" alt="Hockey Pads 1">
+        <h3>Impact Absorption Pads</h3>
+        <p>$79.99</p>
+        <button class="btn" onclick="addToCart('Impact Absorption Pads', 79.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIqcBeTh6R-M_0Swl8V9Ypxy2JWEE8-Tf7lQ&s" alt="Hockey Pads 2">
+        <h3>Advanced Protection Pads</h3>
+        <p>$89.99</p>
+        <button class="btn" onclick="addToCart('Advanced Protection Pads', 89.99)">Add to Cart</button>
+    </div>
+
+    <!-- Hockey Helmet -->
+    <div class="product">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNPVtKM2EaiyS1T6AwrzvYbI40wbtWwt1lEg&s" alt="Hockey Helmet">
+        <h3>Pro Hockey Helmet</h3>
+        <p>$109.99</p>
+        <button class="btn" onclick="addToCart('Pro Hockey Helmet', 109.99)">Add to Cart</button>
+    </div>
+
+    <!-- Hockey Gloves -->
+    <div class="product">
+        <img src="https://s7d2.scene7.com/is/image/CCM/HGFT6_SR_BKWH_01?$Ecom_Square_800$" alt="Hockey Gloves">
+        <h3>Performance Hockey Gloves</h3>
+        <p>$59.99</p>
+        <button class="btn" onclick="addToCart('Performance Hockey Gloves', 59.99)">Add to Cart</button>
+    </div>
+</div>
+<script>
+ function addToCart(productName, productPrice) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingProduct = cart.find(item => item.name === productName);
+
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push({ name: productName, price: parseFloat(productPrice), quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${productName} added to cart!`);
+        }
+    </script>
+</body>
+</html>
