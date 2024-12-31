@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Gear Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        header {
+            background-color: #005a3c;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 15px;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+        .product h3 {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        .product p {
+            color: #555;
+            font-size: 1em;
+            margin: 10px 0;
+        }
+        .product button {
+            background-color: #ff6f00;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        .product button:hover {
+            background-color: #e65c00;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Cricket Gear Shop</h1>
+    <p>High-Quality Equipment for Every Cricketer</p>
+</header>
+
+<div class="container">
+    <!-- Cricket Bats -->
+    <div class="product">
+        <img src="https://5.imimg.com/data5/NU/CQ/RI/SELLER-81383356/mrf-cricket-bat-500x500.jpg" alt="Bat 1">
+        <h3>Professional Cricket Bat</h3>
+        <p>$199.99</p>
+        <button class="btn" onclick="addToCart('Professional Cricket Bat', 199.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnXr8iQW7dKdK-YjTGs6p_z7szetuu1tpTaQ&s" alt="Bat 2">
+        <h3>PowerPlay Cricket Bat</h3>
+        <p>$149.99</p>
+        <button class="btn" onclick="addToCart('PowerPlay Cricket Bat', 149.99)">Add to Cart</button>
+    </div>
+
+    <!-- Cricket Balls -->
+    <div class="product">
+        <img src="https://sppartos.com/cdn/shop/files/Untitled_beaeea0b-a5c3-4968-8e11-d16e81ffc247_580x.jpg?v=1705063276" alt="Ball 1">
+        <h3>Leather Cricket Ball</h3>
+        <p>$24.99</p>
+        <button class="btn" onclick="addToCart('Leather Cricket Ball', 24.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTai2mVc6m40UhocPHvQ6w6LeInq4cDe99J6g&s" alt="Ball 2">
+        <h3>Match-Grade Cricket Ball</h3>
+        <p>$29.99</p>
+        <button class="btn" onclick="addToCart('Match-Grade Cricket Ball', 29.99)">Add to Cart</button>
+    </div>
+
+    <!-- Cricket Helmets -->
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/71TwvW1UW7L._AC_UF894,1000_QL80_.jpg" alt="Helmet 1">
+        <h3>Pro Cricket Helmet</h3>
+        <p>$89.99</p>
+        <button class="btn" onclick="addToCart('Pro Cricket Helmet', 89.99)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://cdn.shopify.com/s/files/1/0330/2014/9899/files/Neck_Guard_4_480x480.jpg?v=1616418730" alt="Helmet 2">
+        <h3>Elite Cricket Helmet</h3>
+        <p>$109.99</p>
+        <button class="btn" onclick="addToCart('Elite Cricket Helmet', 109.99)">Add to Cart</button>
+    </div>
+
+    <!-- Cricket Gloves -->
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/71WE7PyHdlL.jpg" alt="Gloves 1">
+        <h3>Batting Gloves</h3>
+        <p>$49.99</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://gmcricket.in/media/catalog/product/cache/757ea7d2b7282843694bdb6de7a23598/p/r/prima-wicket-keeping-gloves.jpg" alt="Gloves 2">
+        <h3>Wicketkeeping Gloves</h3>
+        <p>$59.99</p>
+        <button class="btn" onclick="addToCart('Wicketkeeping Gloves', 59.99)">Add to Cart</button>
+    </div>
+</div>
+<script>
+        function addToCart(productName, productPrice) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingProduct = cart.find(item => item.name === productName);
+
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push({ name: productName, price: parseFloat(productPrice), quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${productName} added to cart!`);
+        }
+    </script>
+</body>
+</html>
