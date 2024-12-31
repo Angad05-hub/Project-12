@@ -11,18 +11,21 @@
             padding: 0;
             background-color: #f5f5f5;
         }
+
         header {
             background-color: #004080;
             color: white;
             padding: 15px 20px;
             text-align: center;
         }
+
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             padding: 20px;
         }
+
         .product {
             background-color: white;
             border: 1px solid #ddd;
@@ -31,21 +34,25 @@
             padding: 15px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         .product img {
             width: 100%;
             height: auto;
             border-bottom: 1px solid #ddd;
             padding-bottom: 15px;
         }
+
         .product h3 {
             font-size: 1.1em;
             margin: 10px 0;
         }
+
         .product p {
             color: #555;
             font-size: 1em;
             margin: 10px 0;
         }
+
         .product button {
             background-color: #28a745;
             color: white;
@@ -56,13 +63,54 @@
             font-size: 1em;
             transition: background-color 0.3s;
         }
+
         .product button:hover {
             background-color: #218838;
+        }
+
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .back-button:hover {
+            background-color: #003060;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header {
+                font-size: 1.2em;
+                padding: 10px;
+            }
+
+            .product h3 {
+                font-size: 1em;
+            }
+
+            .product p {
+                font-size: 0.9em;
+            }
+
+            .product button {
+                font-size: 0.9em;
+                padding: 8px 12px;
+            }
+
+            
         }
     </style>
 </head>
 <body>
-
+<nav> 
+    <a href="home.html" class="product-button">Back to Home</a></nav>
 <header>
     <h1>Volleyball Gear Shop</h1>
     <p>High-Performance Equipment for Every Volleyball Player</p>
@@ -111,8 +159,11 @@
         <button onclick="addToCart('Pro Volleyball Shoes', '79.99')">Add to Cart</button>
     </div>
 </div>
+
+<a href="home.html" class="back-button">Back to Home</a>
+
 <script>
-function addToCart(productName, productPrice) {
+ function addToCart(productName, productPrice) {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const existingProduct = cart.find(item => item.name === productName);
 
@@ -124,7 +175,8 @@ function addToCart(productName, productPrice) {
 
     localStorage.setItem('cart', JSON.stringify(cart));
     alert(`${productName} added to cart!`);
-}
+        }
 </script>
+
 </body>
 </html>
