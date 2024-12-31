@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volleyball Gear Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+        .product h3 {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        .product p {
+            color: #555;
+            font-size: 1em;
+            margin: 10px 0;
+        }
+        .product button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        .product button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Volleyball Gear Shop</h1>
+    <p>High-Performance Equipment for Every Volleyball Player</p>
+</header>
+
+<div class="container">
+    <!-- Volleyballs -->
+    <div class="product">
+        <img src="https://sportraffic.com/wp-content/uploads/2019/05/Mikasa-V200W-Indoor-Ball.jpg" alt="Volleyball 1">
+        <h3>Professional Volleyball</h3>
+        <p>$29.99</p>
+        <button onclick="addToCart('Professional Volleyball', '29.99')">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/81ONQrP86QL.jpg" alt="Volleyball 2">
+        <h3>Beach Volleyball</h3>
+        <p>$34.99</p>
+        <button onclick="addToCart('Beach Volleyball', '34.99')">Add to Cart</button>
+    </div>
+
+    <!-- Volleyball Knee Pads -->
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/71N8jNTisQL._AC_UF1000,1000_QL80_.jpg" alt="Knee Pads 1">
+        <h3>Impact Absorbing Knee Pads</h3>
+        <p>$19.99</p>
+        <button onclick="addToCart('Impact Absorbing Knee Pads', '19.99')">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/61dQZu3ht3L.jpg" alt="Knee Pads 2">
+        <h3>Elite Volleyball Knee Pads</h3>
+        <p>$24.99</p>
+        <button onclick="addToCart('Elite Volleyball Knee Pads', '24.99')">Add to Cart</button>
+    </div>
+
+    <!-- Volleyball Shoes -->
+    <div class="product">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFoct_dG-y_vplnZHK4p3GhHWurVxR1m3Elg&s" alt="Shoes 1">
+        <h3>Lightweight Volleyball Shoes</h3>
+        <p>$59.99</p>
+        <button onclick="addToCart('Lightweight Volleyball Shoes', '59.99')">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDVaukN3BLghYrze8PHb7Y5ZsU43SoWYZ8Qw&s" alt="Shoes 2">
+        <h3>Pro Volleyball Shoes</h3>
+        <p>$79.99</p>
+        <button onclick="addToCart('Pro Volleyball Shoes', '79.99')">Add to Cart</button>
+    </div>
+</div>
+<script>
+function addToCart(productName, productPrice) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingProduct = cart.find(item => item.name === productName);
+
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push({ name: productName, price: parseFloat(productPrice), quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${productName} added to cart!`);
+}
+</script>
+</body>
+</html>
