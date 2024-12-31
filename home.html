@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cricket Store</title>
+    <title>Sports Accessories Store</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f9f9f9;
             color: #333;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         h1, h2 {
             font-family: 'Poppins', sans-serif;
+            color: #333;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         }
 
-        
         header {
             background: linear-gradient(45deg, #ff6f61, #ffcc00);
             color: white;
@@ -28,25 +29,24 @@
             align-items: center;
             justify-content: space-between;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out;
         }
 
-    
         .logo {
-            max-width: 120px; /* Adjust logo size */
+            max-width: 120px;
             height: auto;
         }
 
-
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-left: 20px;
-            color: white;
+            font-weight: 600;
         }
 
         header h2 {
             font-size: 1.2rem;
             margin: 0;
-            color: white;
+            font-weight: 400;
         }
 
         header nav {
@@ -61,82 +61,64 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         header nav a:hover {
             color: #ffcc00;
             transform: scale(1.1);
         }
-        .container {
-            width: 80%;
-            margin: 50px auto;
-            overflow: hidden;
-        }
 
-
-        .product-grid {
+        .category-section {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
             gap: 30px;
-            margin-top: 30px;
+            padding: 0 20px;
+            animation: fadeIn 1.5s ease-out;
         }
 
-        .product {
-            background: linear-gradient(145deg, #ffffff, #f1f1f1);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .category {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
         }
 
-        .product:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .product img {
+        .category img {
             width: 100%;
             height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .product img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .product h3 {
-            font-size: 1.6rem;
-            color: #333;
-            margin-top: 15px;
-        }
-
-        .product p {
-            font-size: 1.2rem;
-            color: #666;
-            margin: 10px 0;
-        }
-
-        .product button {
-            background-color: #ff6f61;
-            color: white;
-            font-size: 1.1rem;
-            padding: 12px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .product button:hover {
-            background-color: #ff5733;
+        .category img:hover {
             transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            filter: brightness(1.1);
         }
 
+        .category .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .category:hover .overlay {
+            opacity: 1;
+        }
 
         .footer {
             background: linear-gradient(45deg, #ff6f61, #ffcc00);
@@ -148,8 +130,8 @@
             width: 100%;
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
             margin-top: 40px;
+            animation: fadeIn 2s ease-out;
         }
-
 
         @keyframes fadeIn {
             0% {
@@ -162,43 +144,21 @@
             }
         }
 
-        h1, h2, .product-grid {
-            animation: fadeIn 1s ease-out;
-        }
-
-        
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2.5rem;
             }
 
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            .category img {
+                width: 90%;
+                max-width: 300px; /* Limit image size */
             }
 
-            .product {
-                margin: 0 10px;
-            }
-
-            .logo {
-                max-width: 100px;
+            .category-section {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 20px;
             }
         }
-        .login-button {
-background-color:white;
-color:#ff6f61;
-padding: 8px 16px;
-border-radius: 5px;
-font-weight: bold;
-text-transform: none;
-border: 2px solid #ff6f61;
-transition: all 0.3s ease;
-}
-.login-button hover{
-background-color:#ff6f61;
-color: white 
-transform scale(1.05) ;
-}
     </style>
 </head>
 
@@ -208,48 +168,46 @@ transform scale(1.05) ;
         <img src="logo.jpg" alt="Virat Cricket Accessories Logo" class="logo">
         
         <div>
-            <h1>VIRAT CRICKET ACCESSORIES</h1>
-            <h2>Welcome to the Cricket Store</h2>
+            <h1>VIRAT SPORTS ACCESSORIES</h1>
+            <h2>Your One-stop Sports Shop</h2>
         </div>
 
         <nav>
             <a href="home.html">Home</a>
-            <a href="product.html">Products</a>
+            <a href="cart.html">CART</a>
             <a href="aboutus.html">About Us</a>
-            <a href="contact.html">Contact US</a>
+            <a href="contact.html">Contact Us</a>
             <a href="privacypolicy.html">Privacy Policy</a>
             <a href="project12.html" class="login-button">Login</a>
+            <a href="cart.html">CART</a>
         </nav>
     </header>
 
-    <div class="container">
-        <h2>Featured Products</h2>
-        <section class="product-grid">
-            <div class="product">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlpfZsPco7wkgr1JoY3izevv_3ohFwzoSaaA&s" alt="Cricket Bat">
-                <h3>Cricket Bat</h3>
-                <p>Price: $250.00</p>
-            </div>
-            <div class="product">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnb1zBDMcodhw3oapO2b08c-BUlGi24k6jiA&s" alt="Cricket Ball">
-                <h3>Cricket Ball</h3>
-                <p>Price: $30.00</p>
-            </div>
-            <div class="product">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTghsme-wqj5Blf4Qg-Ast3Ob0ufch8h7ejoQ&" alt="Cricket Gloves">
-                <h3>Cricket Gloves</h3>
-                <p>Price: $45.00</p>
-            </div>
-            <div class="product">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwSGnxCBRYsqkeRmtvdA3PL54ErD6OZO-wYQ&s" alt="Cricket Helmet">
-                <h3>Cricket Helmet</h3>
-                <p>Price: $75.00</p>
-            </div>
-        </section>
+    <div class="category-section">
+        <a href="cricket.html?category=cricket" class="category">
+            <img src="cricket.jpg" alt="Cricket Accessories"> 
+            <div class="overlay">Shop Cricket Products</div>
+        </a>
+        <a href="football.html?" class="category">
+            <img src="football.jpg" alt="Football Accessories">
+            <div class="overlay">Shop Football Products</div>
+        </a>
+        <a href="hockey.html" class="category">
+            <img src="hockey.jpg" alt="Hockey Accessories">
+            <div class="overlay">Shop Hockey Products</div>
+        </a>
+        <a href="basketball.html?" class="category">
+            <img src="basketball.jpg" alt="Basketball Accessories">
+            <div class="overlay">Shop Basketball Products</div>
+            
+        <a href="volleyball.html" class="category">
+            <img src="https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_sm_2x/f_auto/v1536936974/primary/exvzqcvorticinejmmel" alt="Volleyball Accessories">
+            <div class="overlay">Shop Volleyball Products</div>
+        </a>
     </div>
 
     <footer class="footer">
-        <p>&copy; 2024 Cricket Store. All rights reserved.</p>
+        <p>&copy; 2024 Sports Store. All rights reserved.</p>
     </footer>
 
 </body>
