@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #003366;
+            color: white;
+        }
+        .total {
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: right;
+            margin-top: 20px;
+        }
+        .total span {
+            color: #28a745;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .back-button {
+            background-color: #007bff;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+        .payment-button {
+            background-color: #ffc107;
+        }
+        .payment-button:hover {
+            background-color: #e0a800;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Your Cart</h1>
+</header>
+
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody id="cartTableBody">
+            <!-- Items will be dynamically inserted here -->
+        </tbody>
+    </table>
+    <div class="total">
+        Total Cost: $<span id="totalCost">0.00</span>
+    </div>
+    <button onclick="clearCart()">Clear Cart</button>
+
+    <!-- Back Button -->
+    <button class="back-button" onclick="window.location.href='home.html'">Back to Home</button>
+
+    <!-- Payment Button -->
+    <button class="payment-button" onclick="window.location.href='payment.html'">Proceed to Payment</button>
+</div>
+
+<script>
+function displayCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartTableBody = document.getElementById('cartTableBody');
+    const totalCostElement = document.getElementById('totalCost');
+
+    cartTableBody.innerHTML = '';
+    let totalCost = 0;
+
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        totalCost += itemTotal;
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td>$${item.price.toFixed(2)}</td>
+            <td>${item.quantity}</td>
+            <td>$${itemTotal.toFixed(2)}</td>
+        `;
+        cartTableBody.appendChild(row);
+    });
+
+    totalCostElement.textContent = totalCost.toFixed(2);
+}
+
+function clearCart() {
+    localStorage.removeItem('cart');
+    displayCart();
+    alert('Cart has been cleared!');
+}
+
+displayCart();
+</script>
+
+</body>
+</html>
