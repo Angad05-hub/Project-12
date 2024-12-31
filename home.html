@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,8 +26,9 @@
         header {
             background: linear-gradient(45deg, #ff6f61, #ffcc00);
             color: white;
-            padding: 20px 20px;
+            padding: 20px;
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -33,28 +36,35 @@
         }
 
         .logo {
-            max-width: 120px;
+            max-width: 100px;
             height: auto;
+            margin-right: 10px;
+        }
+
+        header div {
+            flex: 1;
+            text-align: center;
         }
 
         header h1 {
-            font-size: 2.8rem;
-            margin-left: 20px;
+            font-size: 2rem;
+            margin: 5px 0;
             font-weight: 600;
         }
 
         header h2 {
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin: 0;
             font-weight: 400;
         }
 
         header nav {
-            margin-left: auto;
+            flex: 1;
+            text-align: right;
         }
 
         header nav a {
-            margin: 0 20px;
+            margin: 0 10px;
             color: white;
             text-decoration: none;
             font-weight: 600;
@@ -74,8 +84,8 @@
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             justify-content: center;
             align-items: center;
-            margin-top: 50px;
-            gap: 30px;
+            margin: 20px 0;
+            gap: 20px;
             padding: 0 20px;
             animation: fadeIn 1.5s ease-out;
         }
@@ -105,7 +115,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 600;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
             text-align: center;
@@ -124,12 +134,12 @@
             background: linear-gradient(45deg, #ff6f61, #ffcc00);
             color: white;
             text-align: center;
-            padding: 20px 0;
+            padding: 15px;
             position: relative;
             bottom: 0;
             width: 100%;
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-            margin-top: 40px;
+            margin-top: 20px;
             animation: fadeIn 2s ease-out;
         }
 
@@ -145,18 +155,27 @@
         }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
+            header {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .category img {
-                width: 90%;
-                max-width: 300px; /* Limit image size */
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header nav {
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            header nav a {
+                margin: 0 5px;
             }
 
             .category-section {
-                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-                gap: 20px;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
             }
         }
     </style>
@@ -166,20 +185,17 @@
 
     <header>
         <img src="logo.jpg" alt="Virat Cricket Accessories Logo" class="logo">
-        
         <div>
             <h1>VIRAT SPORTS ACCESSORIES</h1>
             <h2>Your One-stop Sports Shop</h2>
         </div>
-
         <nav>
             <a href="home.html">Home</a>
-            <a href="cart.html">CART</a>
+            <a href="cart.html">Cart</a>
             <a href="aboutus.html">About Us</a>
             <a href="contact.html">Contact Us</a>
             <a href="privacypolicy.html">Privacy Policy</a>
             <a href="project12.html" class="login-button">Login</a>
-            <a href="cart.html">CART</a>
         </nav>
     </header>
 
@@ -188,7 +204,7 @@
             <img src="https://cdn.britannica.com/63/211663-050-A674D74C/Jonny-Bairstow-batting-semifinal-match-England-Australia-2019.jpg" alt="Cricket Accessories"> 
             <div class="overlay">Shop Cricket Products</div>
         </a>
-        <a href="football.html?" class="category">
+        <a href="football.html" class="category">
             <img src="https://cdn.britannica.com/69/228369-050-0B18A1F6/Asian-Cup-Final-2019-Hasan-Al-Haydos-Qatar-Japan-Takumi-Minamino.jpg" alt="Football Accessories">
             <div class="overlay">Shop Football Products</div>
         </a>
@@ -196,10 +212,10 @@
             <img src="https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_lg_2x/f_auto/primary/b2unl1gppjiic0fld0em" alt="Hockey Accessories">
             <div class="overlay">Shop Hockey Products</div>
         </a>
-        <a href="basketball.html?" class="category">
+        <a href="basketball.html" class="category">
             <img src="https://npr.brightspotcdn.com/dims3/default/strip/false/crop/6659x3746+0+0/resize/1400/quality/100/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F64%2F6c%2F2b485334496483907e8543bf415d%2Fgettyimages-2165743044.jpg" alt="Basketball Accessories">
             <div class="overlay">Shop Basketball Products</div>
-            
+        </a>
         <a href="volleyball.html" class="category">
             <img src="https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl/f_auto/primary/a1mdtk6qn3nepjexqi9y" alt="Volleyball Accessories">
             <div class="overlay">Shop Volleyball Products</div>
@@ -212,5 +228,3 @@
 
 </body>
 </html>
-
-
