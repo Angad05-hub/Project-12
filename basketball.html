@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball & Sports Equipment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .product-price {
+            font-size: 16px;
+            color: #333;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 768px) {
+            .product-card {
+                padding: 15px;
+            }
+            .product-name {
+                font-size: 16px;
+            }
+            .product-price {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Basketball & Sports Equipment</h1>
+        <p>Quality gear for all your sports needs!</p>
+    </header>
+    
+    <div class="product-container">
+        <!-- Basketball -->
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoWxQkPM_RQCvbjn0C1RtDFYaWBoVJaxkEOA&s" alt="Basketball">
+            <div class="product-name">Spalding NBA Basketball</div>
+            <div class="product-price">$29.99</div>
+            <button class="btn" onclick="addToCart('Spalding NBA Basketball', 29.99)">Add to Cart</button>
+        </div>
+        
+        <!-- Lakers Jersey -->
+        <div class="product-card">
+            <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/d9aa1b6a-4385-4233-96b6-b03f5c83d1a6/LAL+MNK+DF+SWGMN+JSY+ICN+22.png" alt="Lakers Jersey">
+            <div class="product-name">Los Angeles Lakers Jersey</div>
+            <div class="product-price">$49.99</div>
+            <button class="btn" onclick="addToCart('Los Angeles Lakers Jersey', 49.99)">Add to Cart</button>
+        </div>
+
+        <!-- Bulls Jersey -->
+        <div class="product-card">
+            <img src="https://static.nbastore.in/resized/500X500/276/nike-chicago-bulls-demar-derozan-dri-fit-nba-swingman-icon-edition-202223-jersey-red-red-65cb9c6f8c2b7.jpg" alt="Chicago Bulls Jersey">
+            <div class="product-name">Chicago Bulls Jersey</div>
+            <div class="product-price">$49.99</div>
+            <button class="btn" onclick="addToCart('Chicago Bulls Jersey', 49.99)">Add to Cart</button>
+        </div>
+
+        <!-- Volleyball Net -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/71T5ztqMzUL._AC_UF894,1000_QL80_.jpg" alt="Volleyball Net">
+            <div class="product-name">Official Basketball Net</div>
+            <div class="product-price">$89.99</div>
+            <button class="btn" onclick="addToCart('Official Basketball Net', 89.99)">Add to Cart</button>
+        </div>
+
+        <!-- Basketball Shoes 1 -->
+        <div class="product-card">
+            <img src="https://www.basketballemotion.com/imagesarticulos/240377/medianas/zapatillas-puma-mb.04-phoenix-red-orange-glow-fluro-orange-pes-purple-glimm-1.webp" alt="Basketball Shoes 1">
+            <div class="product-name">Nike Air Zoom Basketball Shoes</div>
+            <div class="product-price">$99.99</div>
+            <button class="btn" onclick="addToCart('Nike Air Zoom Basketball Shoes', 99.99)">Add to Cart</button>
+        </div>
+
+        <!-- Basketball Shoes 2 -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/615kEwO21BL._AC_UY1000_.jpg" alt="Basketball Shoes 2">
+            <div class="product-name">Adidas Harden Basketball Shoes</div>
+            <div class="product-price">$109.99</div>
+            <button class="btn" onclick="addToCart('Adidas Harden Basketball Shoes', 109.99)">Add to Cart</button>
+        </div>
+    </div>
+
+    <script>
+        function addToCart(productName, productPrice) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingProduct = cart.find(item => item.name === productName);
+
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push({ name: productName, price: parseFloat(productPrice), quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${productName} added to cart!`);
+        }
+    </script>
+</body>
+</html>
