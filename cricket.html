@@ -89,80 +89,74 @@
     <p>High-Quality Equipment for Every Cricketer</p>
 </header>
 
-<a href="home.html" class="back-button">Back to Home</a>
+<a href="home.html" class="back-button" aria-label="Go back to home page">Back to Home</a>
 
-<div class="container">
-    <!-- Cricket Bats -->
-    <div class="product">
-        <img src="https://5.imimg.com/data5/NU/CQ/RI/SELLER-81383356/mrf-cricket-bat-500x500.jpg" alt="Bat 1">
-        <h3>Professional Cricket Bat</h3>
-        <p>$199.99</p>
-        <button class="btn" onclick="addToCart('Professional Cricket Bat', 199.99)">Add to Cart</button>
+<div class="container" role="region" aria-labelledby="product-section">
+    <h2 id="product-section" class="visually-hidden">Product Listings</h2>
+    <div class="product" role="article" aria-labelledby="bat1-title" aria-describedby="bat1-price">
+        <img src="https://5.imimg.com/data5/NU/CQ/RI/SELLER-81383356/mrf-cricket-bat-500x500.jpg" alt="Professional Cricket Bat">
+        <h3 id="bat1-title">Professional Cricket Bat</h3>
+        <p id="bat1-price">$199.99</p>
+        <button class="btn" aria-label="Add Professional Cricket Bat to cart" onclick="addToCart('Professional Cricket Bat', 199.99)">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnXr8iQW7dKdK-YjTGs6p_z7szetuu1tpTaQ&s" alt="Bat 2">
-        <h3>PowerPlay Cricket Bat</h3>
-        <p>$149.99</p>
-        <button class="btn" onclick="addToCart('PowerPlay Cricket Bat', 149.99)">Add to Cart</button>
+    <div class="product" role="article" aria-labelledby="bat2-title" aria-describedby="bat2-price">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnXr8iQW7dKdK-YjTGs6p_z7szetuu1tpTaQ&s" alt="PowerPlay Cricket Bat">
+        <h3 id="bat2-title">PowerPlay Cricket Bat</h3>
+        <p id="bat2-price">$149.99</p>
+        <button class="btn" aria-label="Add PowerPlay Cricket Bat to cart" onclick="addToCart('PowerPlay Cricket Bat', 149.99)">Add to Cart</button>
     </div>
-
-    <!-- Cricket Balls -->
-    <div class="product">
-        <img src="https://sppartos.com/cdn/shop/files/Untitled_beaeea0b-a5c3-4968-8e11-d16e81ffc247_580x.jpg?v=1705063276" alt="Ball 1">
-        <h3>Leather Cricket Ball</h3>
-        <p>$24.99</p>
-        <button class="btn" onclick="addToCart('Leather Cricket Ball', 24.99)">Add to Cart</button>
+    <div class="product" role="article" aria-labelledby="ball1-title" aria-describedby="ball1-price">
+        <img src="https://sppartos.com/cdn/shop/files/Untitled_beaeea0b-a5c3-4968-8e11-d16e81ffc247_580x.jpg?v=1705063276" alt="Leather Cricket Ball">
+        <h3 id="ball1-title">Leather Cricket Ball</h3>
+        <p id="ball1-price">$24.99</p>
+        <button class="btn" aria-label="Add Leather Cricket Ball to cart" onclick="addToCart('Leather Cricket Ball', 24.99)">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTai2mVc6m40UhocPHvQ6w6LeInq4cDe99J6g&s" alt="Ball 2">
-        <h3>Match-Grade Cricket Ball</h3>
-        <p>$29.99</p>
-        <button class="btn" onclick="addToCart('Match-Grade Cricket Ball', 29.99)">Add to Cart</button>
+    <div class="product" role="article" aria-labelledby="ball2-title" aria-describedby="ball2-price">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTai2mVc6m40UhocPHvQ6w6LeInq4cDe99J6g&s" alt="Match-Grade Cricket Ball">
+        <h3 id="ball2-title">Match-Grade Cricket Ball</h3>
+        <p id="ball2-price">$29.99</p>
+        <button class="btn" aria-label="Add Match-Grade Cricket Ball to cart" onclick="addToCart('Match-Grade Cricket Ball', 29.99)">Add to Cart</button>
     </div>
-
-    <!-- Cricket Helmets -->
-    <div class="product">
-        <img src="https://m.media-amazon.com/images/I/71TwvW1UW7L._AC_UF894,1000_QL80_.jpg" alt="Helmet 1">
-        <h3>Pro Cricket Helmet</h3>
-        <p>$89.99</p>
-        <button class="btn" onclick="addToCart('Pro Cricket Helmet', 89.99)">Add to Cart</button>
+    <div class="product" role="article" aria-labelledby="helmet1-title" aria-describedby="helmet1-price">
+        <img src="https://m.media-amazon.com/images/I/71TwvW1UW7L._AC_UF894,1000_QL80_.jpg" alt="Pro Cricket Helmet">
+        <h3 id="helmet1-title">Pro Cricket Helmet</h3>
+        <p id="helmet1-price">$89.99</p>
+        <button class="btn" aria-label="Add Pro Cricket Helmet to cart" onclick="addToCart('Pro Cricket Helmet', 89.99)">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="https://cdn.shopify.com/s/files/1/0330/2014/9899/files/Neck_Guard_4_480x480.jpg?v=1616418730" alt="Helmet 2">
-        <h3>Elite Cricket Helmet</h3>
-        <p>$109.99</p>
-        <button class="btn" onclick="addToCart('Elite Cricket Helmet', 109.99)">Add to Cart</button>
+    <div class="product" role="article" aria-labelledby="helmet2-title" aria-describedby="helmet2-price">
+        <img src="https://cdn.shopify.com/s/files/1/0330/2014/9899/files/Neck_Guard_4_480x480.jpg?v=1616418730" alt="Elite Cricket Helmet">
+        <h3 id="helmet2-title">Elite Cricket Helmet</h3>
+        <p id="helmet2-price">$109.99</p>
+        <button class="btn" aria-label="Add Elite Cricket Helmet to cart" onclick="addToCart('Elite Cricket Helmet', 109.99)">Add to Cart</button>
     </div>
-
-    <!-- Cricket Gloves -->
-    <div class="product">
-        <img src="https://m.media-amazon.com/images/I/71WE7PyHdlL.jpg" alt="Gloves 1">
-        <h3>Batting Gloves</h3>
-        <p>$49.99</p>
-        <button class="btn" onclick="addToCart('Batting Gloves', 49.99)">Add to Cart</button>
+    <div class="product" role="article" aria-labelledby="gloves1-title" aria-describedby="gloves1-price">
+        <img src="https://m.media-amazon.com/images/I/71WE7PyHdlL.jpg" alt="Batting Gloves">
+        <h3 id="gloves1-title">Batting Gloves</h3>
+        <p id="gloves1-price">$49.99</p>
+        <button class="btn" aria-label="Add Batting Gloves to cart" onclick="addToCart('Batting Gloves', 49.99)">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="https://gmcricket.in/media/catalog/product/cache/757ea7d2b7282843694bdb6de7a23598/p/r/prima-wicket-keeping-gloves.jpg" alt="Gloves 2">
-        <h3>Wicketkeeping Gloves</h3>
-        <p>$59.99</p>
-        <button class="btn" onclick="addToCart('Wicketkeeping Gloves', 59.99)">Add to Cart</button>
+    <div class="product" role="article" aria-labelledby="gloves2-title" aria-describedby="gloves2-price">
+        <img src="https://gmcricket.in/media/catalog/product/cache/757ea7d2b7282843694bdb6de7a23598/p/r/prima-wicket-keeping-gloves.jpg" alt="Wicketkeeping Gloves">
+        <h3 id="gloves2-title">Wicketkeeping Gloves</h3>
+        <p id="gloves2-price">$59.99</p>
+        <button class="btn" aria-label="Add Wicketkeeping Gloves to cart" onclick="addToCart('Wicketkeeping Gloves', 59.99)">Add to Cart</button>
     </div>
 </div>
 
 <script>
-      function addToCart(productName, productPrice) {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const existingProduct = cart.find(item => item.name === productName);
+    function addToCart(productName, productPrice) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existingProduct = cart.find(item => item.name === productName);
 
-    if (existingProduct) {
-        existingProduct.quantity++;
-    } else {
-        cart.push({ name: productName, price: parseFloat(productPrice), quantity: 1 });
-    }
-
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`${productName} added to cart!`);
+        if (existingProduct) {
+            existingProduct.quantity++;
+        } else {
+            cart.push({ name: productName, price: parseFloat(productPrice), quantity: 1 });
         }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${productName} added to cart!`);
+    }
 </script>
 
 </body>
